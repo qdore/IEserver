@@ -11,9 +11,14 @@
 using namespace std;
 using namespace boost::asio;
 int main(int argc, const char * argv[])
+try
 {
     io_service io;
     Server s(io, 8888);
     io.run();
+}
+catch (std::exception& er)
+{
+    cout << er.what() << endl;
 }
 
